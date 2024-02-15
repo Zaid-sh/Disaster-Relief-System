@@ -29,13 +29,33 @@ public class DisasterVictim{
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException
-    {
-        if()
-        {
+    public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException {
+        if (!dateOfBirth.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
+            throw new IllegalArgumentException("Not a valid date of birth: " + dateOfBirth);
+        } else {
+            String[] parts = dateOfBirth.split("-");
+            try {
+            
+            int year = Integer.parseInt(parts[0]);
+            if (year < 1900 || year > 2025) {
+                throw new IllegalArgumentException("Invalid year: " + year);
+            }
+            
+            
+            int month = Integer.parseInt(parts[1]);
+            if (month < 1 || month > 12) {
+                throw new IllegalArgumentException("Invalid month: " + month);
+            }
 
+            int date = Integer.parseInt(parts[2]);
+            if (date < 1 || date > 31) {
+                throw new IllegalArgumentException("Invalid month: " + month);
+            }
+            
+            } catch (NumberFormatException exeption) {
+            throw new IllegalArgumentException("Invalid date format: " + dateOfBirth, exeption);
+            }
         }
-        throw new IllegalArgumentException("Not a valid date of birth: "+dateOfBirth);
     }
 
     public void setComments(String comments) { this.comments = comments; }
