@@ -39,7 +39,7 @@ public class DisasterVictim{
     public void setComments(String comments) { this.comments = comments; }
     public void setMedicalRecords(MedicalRecord[] medicalRecords) { this.medicalRecords = medicalRecords; }
     public void setPersonalBelongings(Supply[] supplies) { this.personalBelongings = supplies; }
-    public void setFamilyConnections(FamilRelation[] relation) { this.familyConnections = relation; }
+    public void setFamilyConnections(FamilyRelation[] relation) { this.familyConnections = relation; }
     public void setGender(String gender) { this.gender = gender; }
 
     public void addPersonalBelonging(Supply supply)
@@ -78,7 +78,4 @@ public class DisasterVictim{
     public Supply[] getPersonalBelongings() { return personalBelongings; }
     public FamilyRelation[] getFamilyConnections() { return familyConnections; }
     public String getGender() { return gender; }
-
-
-
 }
