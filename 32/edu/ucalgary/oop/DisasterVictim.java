@@ -83,22 +83,71 @@ public class DisasterVictim{
 
     public void addPersonalBelonging(Supply supply)
     {
-
+        if (this.personalBelongings == null) {
+            Supply[] arr = {supply};
+            this.personalBelongings = arr;
+            }
+        else {
+            Supply[] arr = new Supply[this.personalBelongings.length + 1];
+            for (int i = 0; i < this.personalBelongings.length; i++) {
+            arr[i] = this.personalBelongings[i];
+            }
+            arr[arr.length - 1] = supply;
+            this.personalBelongings = arr;
+            }
     }
 
     public void removePersonalBelonging(Supply supply)
     {
-
+        int indexToRemove = -1;
+        for (int i = 0; i < this.personalBelongings.length; i++) {
+            if (this.personalBelongings[i] == supply) {
+                indexToRemove = i;
+                break;
+            }
+        }
+ 
+        if (indexToRemove != -1) {
+            Supply[] newArray = new Supply[this.personalBelongings.length - 1];
+            System.arraycopy(this.personalBelongings, 0, newArray, 0, indexToRemove);
+            System.arraycopy(this.personalBelongings, indexToRemove + 1, newArray, indexToRemove, this.personalBelongings.length - indexToRemove - 1);
+            this.personalBelongings = newArray;
+        }
     }
 
     public void addFamilyConnection(FamilyRelation familyConnection)
     {
-
+        if (this.familyConnections == null) {
+            FamilyRelation[] arr = {familyConnection};
+            this.familyConnections = arr;
+            }
+        else {
+            FamilyRelation[] arr = new FamilyRelation[this.familyConnections.length + 1];
+            for (int i = 0; i < this.familyConnections.length; i++) {
+            arr[i] = this.familyConnections[i];
+            }
+            arr[arr.length - 1] = familyConnection;
+            this.familyConnections = arr;
+        }
+            
     }
 
     public void removeFamilyConnection(FamilyRelation familyConnection)
     {
-
+        int indexToRemove = -1;
+        for (int i = 0; i < this.familyConnections.length; i++) {
+            if (this.familyConnections[i] == familyConnection) {
+                indexToRemove = i;
+                break;
+            }
+        }
+ 
+        if (indexToRemove != -1) {
+            FamilyRelation[] newArray = new FamilyRelation[this.familyConnections.length - 1];
+            System.arraycopy(this.familyConnections, 0, newArray, 0, indexToRemove);
+            System.arraycopy(this.familyConnections, indexToRemove + 1, newArray, indexToRemove, this.familyConnections.length - indexToRemove - 1);
+            this.familyConnections = newArray;
+        }
     }
 
     public void addMedicalRecord(MedicalRecord medicalRecord)
