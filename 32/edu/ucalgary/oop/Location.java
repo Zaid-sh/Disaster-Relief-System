@@ -1,11 +1,13 @@
 package edu.ucalgary.oop;
 
+import java.util.ArrayList;
+
 public class Location {
     // Member Variables
     private String name;
     private String address;
-    private DisasterVictim[] occupants;
-    private Supply[] supplies;
+    private ArrayList<DisasterVictim> occupants;
+    private ArrayList<Supply> supplies;
 
     // Constructor
     public Location(String name, String address) {
@@ -17,30 +19,30 @@ public class Location {
     // Setters
     public void setName(String name) {this.name = name; }
     public void setAddress(String address) {this.address = address; }
-    public void setOccupants(DisasterVictim[] occupants) {this.occupants = occupants; }
-    public void setSupplies(Supply[] supplies) {this.supplies = supplies; }
+    public void setOccupants(ArrayList<DisasterVictim> occupants) {this.occupants = occupants; }
+    public void setSupplies(ArrayList<Supply> supplies) {this.supplies = supplies; }
 
     // Other methods
     public void addOccupant(DisasterVictim occupant)
     {
-
+        this.occupants.add(occupant);
     }
 
     public void removeOccupant(DisasterVictim occupant) {
-
+        this.occupants.remove(occupant);
     }
 
     public void addSupply(Supply supply) {
-
+        this.supplies.add(supply);
     }
 
     public void removeSupply(Supply supply) {
-
+        this.supplies.remove(supply);
     }
 
     // Getters
-    public String getName() { return this.name; } //Duplicate modifier for the method getName in type Location ?
-    public String getAddress() { return this.address; }
-    public DisasterVictim[] getOccupants() {return this.occupants; }
-    public Supply[] getSupplies() { return this.supplies; }
+    public String getName() {return this.name;} 
+    public String getAddress() { return this.address;}
+    public ArrayList<DisasterVictim> getOccupants() {return this.occupants; }
+    public ArrayList<Supply> getSupplies() { return this.supplies; }
 }
