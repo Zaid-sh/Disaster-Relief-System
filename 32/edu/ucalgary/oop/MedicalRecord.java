@@ -10,15 +10,28 @@ public class MedicalRecord {
 
     // Constructor
     public MedicalRecord (Location location, String treatmentDetails, String dateOfTreatment) {
-        this.location = location;
-        this.treatmentDetails = treatmentDetails;
-        this.dateOfTreatment = dateOfTreatment;
+        
+        if()
+        {
+
+        }
+        throw new IllegalArgumentException("Not a valid date of treatment: "+dateOfTreatment);
+        // this.location = location;
+        // this.treatmentDetails = treatmentDetails;
+        // this.dateOfTreatment = dateOfTreatment;
     }
 
     // Setters
     public void setLocation(Location location) { this.location = location; }
     public void setTreatmentDetails(String treatmentDetails) { this.treatmentDetails = treatmentDetails; }
-    public void setDateOfTreatment(String dateOfTreatment) {this.dateOfTreatment = dateOfTreatment; }
+    public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException {
+        
+        if (){
+
+        }
+        throw new IllegalArgumentException("Not a valid entry date: "+dateOfTreatment);        
+        // this.dateOfTreatment = dateOfTreatment;
+    }
 
     // Getters
     public Location getLocation() { return this.location; }
