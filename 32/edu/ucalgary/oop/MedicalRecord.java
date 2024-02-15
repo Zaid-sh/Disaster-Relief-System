@@ -11,14 +11,12 @@ public class MedicalRecord {
     // Constructor
     public MedicalRecord (Location location, String treatmentDetails, String dateOfTreatment) {
         
-        if()
-        {
-
-        }
-        throw new IllegalArgumentException("Not a valid date of treatment: "+dateOfTreatment);
-        // this.location = location;
-        // this.treatmentDetails = treatmentDetails;
-        // this.dateOfTreatment = dateOfTreatment;
+        if (!dateOfTreatment.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+            throw new IllegalArgumentException("Date of birth entered incorrectly.");
+            }
+        this.location = location;
+        this.treatmentDetails = treatmentDetails;
+        this.dateOfTreatment = dateOfTreatment;
     }
 
     // Setters

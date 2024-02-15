@@ -11,17 +11,15 @@ public class ReliefService {
     private Location lastKnownLocation;
 
     // Constructor
-    public ReliefService(Inquirer inquirer, DisasterVictim missingPerson, String dateOfInquiry, String infoProvided, Location lastKnownLocation){
-        if()
-        {
-
+    public ReliefService(Inquirer inquirer, DisasterVictim missingPerson,String dateOfInquiry, String infoProvided, Location lastKnownLocation) {
+        if (!dateOfInquiry.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+            throw new IllegalArgumentException("Date of birth entered incorrectly.");
         }
-        throw new IllegalArgumentException("Not a valid entry date of inquiry: "+dateOfInquiry);
-        // this.inquirer = inquirer;
-        // this.missingPerson = missingPerson;
-        // this.dateOfInquiry = dateOfInquiry;
-        // this.infoProvided = infoProvided;
-        // this.lastKnownLocation = lastKnownLocation;
+        this.inquirer = inquirer;
+        this.missingPerson = missingPerson;
+        this.dateOfInquiry = dateOfInquiry;
+        this.infoProvided = infoProvided;
+        this.lastKnownLocation = lastKnownLocation;
     }
 
     // Setters

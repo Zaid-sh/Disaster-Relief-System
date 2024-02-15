@@ -17,13 +17,13 @@ public class DisasterVictim{
 
     public DisasterVictim (String firstName, String entry_Date) throws IllegalArgumentException
     {
-        if()
-        {
-
-        }
-        throw new IllegalArgumentException("Not a valid entry date: "+entry_Date);
-        // this.firstName = firstName;
-        // this.entryDate = entry_Date;
+        if (!ENTRY_DATE.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+            throw new IllegalArgumentException("Date of birth entered incorrectly.");
+            }
+        this.firstName = firstName;
+        this.ENTRY_DATE = ENTRY_DATE;
+        this.ASSIGNED_SOCIAL_ID = counter;
+        counter++;
     }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }
