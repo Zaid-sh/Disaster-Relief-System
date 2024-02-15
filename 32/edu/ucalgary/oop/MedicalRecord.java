@@ -29,7 +29,7 @@ public class MedicalRecord {
         if (){
 
         }
-        throw new IllegalArgumentException("Not a valid entry date: "+dateOfTreatment);        
+        throw new IllegalArgumentException("Not a valid entry date of treatment: "+dateOfTreatment);        
         // this.dateOfTreatment = dateOfTreatment;
     }
 

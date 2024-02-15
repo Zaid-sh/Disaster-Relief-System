@@ -12,17 +12,29 @@ public class ReliefService {
 
     // Constructor
     public ReliefService(Inquirer inquirer, DisasterVictim missingPerson, String dateOfInquiry, String infoProvided, Location lastKnownLocation){
-        this.inquirer = inquirer;
-        this.missingPerson = missingPerson;
-        this.dateOfInquiry = dateOfInquiry;
-        this.infoProvided = infoProvided;
-        this.lastKnownLocation = lastKnownLocation;
+        if()
+        {
+
+        }
+        throw new IllegalArgumentException("Not a valid entry date of inquiry: "+dateOfInquiry);
+        // this.inquirer = inquirer;
+        // this.missingPerson = missingPerson;
+        // this.dateOfInquiry = dateOfInquiry;
+        // this.infoProvided = infoProvided;
+        // this.lastKnownLocation = lastKnownLocation;
     }
 
     // Setters
     public void setInquirer(Inquirer inquirer) {this.inquirer = inquirer; }
     public void setMissingPerson(DisasterVictim missingPerson) {this.missingPerson = missingPerson; }
-    public void setDateOfInquiry(String dateOfInquiry) {this.dateOfInquiry = dateOfInquiry; }
+    public void setDateOfInquiry(String dateOfInquiry) throws IllegalArgumentException{
+        if()
+        {
+
+        }
+        throw new IllegalArgumentException("Not a valid entry date of inquiry: "+dateOfInquiry);
+        // this.dateOfInquiry = dateOfInquiry;
+    }
     public void setInfoProvided(String infoProvided) {this.infoProvided = infoProvided; }
     public void setLastKnownLocation(Location lastKnownLocation) {this.lastKnownLocation = lastKnownLocation; }
 
