@@ -1,7 +1,5 @@
 package edu.ucalgary.oop;
 
-import java.util.regex.*;
-
 public class Supply {
     // Member Variables
     private String type;

@@ -33,7 +33,7 @@ public class ReliefService {
     public String getInfoProvided() {return this.infoProvided; }
     public Location getLastKnownLocation() {return this.lastKnownLocation; }
 
-    public String getLogDetails() {return null}
+    public String getLogDetails() {return null; }
     //what do we return for this setter?
     //potentially log details we can get from a value from a diff class?
 }

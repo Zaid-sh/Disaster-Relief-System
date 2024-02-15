@@ -1,7 +1,5 @@
 package edu.ucalgary.oop;
 
-import java.util.regex.*;
-
 public class Inquirer {
     // Member variables
     private String firstName;
