@@ -24,11 +24,10 @@ public class MedicalRecord {
     public void setTreatmentDetails(String treatmentDetails) { this.treatmentDetails = treatmentDetails; }
     public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException {
         
-        if (){
-
-        }
-        throw new IllegalArgumentException("Not a valid entry date of treatment: "+dateOfTreatment);        
-        // this.dateOfTreatment = dateOfTreatment;
+        if (!dateOfTreatment.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+            throw new IllegalArgumentException("Date of birth entered incorrectly.");
+            }
+            this.dateOfTreatment = dateOfTreatment;
     }
 
     // Getters
