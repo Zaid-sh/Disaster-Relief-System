@@ -72,6 +72,7 @@ public class DisasterVictim{
             throw new IllegalArgumentException("Invalid date format: " + dateOfBirth, exeption);
             }
         }
+        this.dateOfBirth = dateOfBirth
     }
 
     public void setComments(String comments) { this.comments = comments; }
