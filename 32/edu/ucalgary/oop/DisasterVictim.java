@@ -22,6 +22,8 @@ public class DisasterVictim{
 
         }
         throw new IllegalArgumentException("Not a valid entry date: "+entry_Date);
+        // this.firstName = firstName;
+        // this.entryDate = entry_Date;
     }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }
