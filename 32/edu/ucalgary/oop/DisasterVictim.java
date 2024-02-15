@@ -46,12 +46,28 @@ public class DisasterVictim{
             if (month < 1 || month > 12) {
                 throw new IllegalArgumentException("Invalid month: " + month);
             }
-
-            int date = Integer.parseInt(parts[2]);
-            if (date < 1 || date > 31) {
-                throw new IllegalArgumentException("Invalid month: " + month);
+            if (month==1||month ==3||month==5||month ==7||month==8||month ==10||month ==12){
+                int date = Integer.parseInt(parts[2]);
+                if (date < 1 || date > 31) {
+                    throw new IllegalArgumentException("Invalid date: " + date);
+                }
             }
-            
+
+            else if(month==4||month ==6||month==9||month ==11){
+                int date = Integer.parseInt(parts[2]);
+                if (date < 1 || date > 30) {
+                    throw new IllegalArgumentException("Invalid date: " + date);
+                }
+
+            }
+
+            else{
+                int date = Integer.parseInt(parts[2]);
+                if (date < 1 || date > 28) {
+                    throw new IllegalArgumentException("Invalid date: " + date);
+                }
+            }
+
             } catch (NumberFormatException exeption) {
             throw new IllegalArgumentException("Invalid date format: " + dateOfBirth, exeption);
             }
