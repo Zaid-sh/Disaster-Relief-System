@@ -17,12 +17,12 @@ public class DisasterVictim{
 
     public DisasterVictim (String firstName, String entry_Date) throws IllegalArgumentException
     {
-        if (!ENTRY_DATE.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+        if (!entry_Date.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
             throw new IllegalArgumentException("Date of birth entered incorrectly.");
             }
         this.firstName = firstName;
-        this.ENTRY_DATE = ENTRY_DATE;
-        this.ASSIGNED_SOCIAL_ID = counter;
+        this.entryDate = entry_Date;
+        this.assignedSocialID = counter;
         counter++;
     }
 
@@ -72,7 +72,7 @@ public class DisasterVictim{
             throw new IllegalArgumentException("Invalid date format: " + dateOfBirth, exeption);
             }
         }
-        this.dateOfBirth = dateOfBirth
+        this.dateOfBirth = dateOfBirth;
     }
 
     public void setComments(String comments) { this.comments = comments; }
