@@ -26,13 +26,11 @@ public class ReliefService {
     public void setInquirer(Inquirer inquirer) {this.inquirer = inquirer; }
     public void setMissingPerson(DisasterVictim missingPerson) {this.missingPerson = missingPerson; }
     public void setDateOfInquiry(String dateOfInquiry) throws IllegalArgumentException{
-        if()
-        {
-
+        if (!dateOfInquiry.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
+            throw new IllegalArgumentException("Date of birth entered incorrectly.");
+            }
+        this.dateOfInquiry = dateOfInquiry;
         }
-        throw new IllegalArgumentException("Not a valid entry date of inquiry: "+dateOfInquiry);
-        // this.dateOfInquiry = dateOfInquiry;
-    }
     public void setInfoProvided(String infoProvided) {this.infoProvided = infoProvided; }
     public void setLastKnownLocation(Location lastKnownLocation) {this.lastKnownLocation = lastKnownLocation; }
 
