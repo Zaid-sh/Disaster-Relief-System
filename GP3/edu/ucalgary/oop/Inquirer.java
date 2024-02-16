@@ -13,19 +13,10 @@ public class Inquirer {
         this.INFO = INFO;
     }
 
-    public String getFirstName() {
-        return FIRST_NAME;
-    }
-
-    public String getLastName() {
-        return LAST_NAME;
-    }
-
-    public String getInfo() {
-        return INFO;
-    }
-
-    public String getServicesPhoneNum() {
-        return SERVICES_PHONE;
-    }
+    // No Setters or additional Methods
+    // Getters
+    public String getFirstName() {return this.FIRST_NAME; }
+    public String getLastName() {return this.LAST_NAME; }
+    public String getInfo() {return this.INFO; }
+    public String getServicesPhone() {return this.SERVICES_PHONE; }
 }
