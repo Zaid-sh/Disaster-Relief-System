@@ -14,6 +14,8 @@ public class Location {
         // initialize these variables?
         this.name = name;
         this.address = address;
+        this.occupants = new ArrayList<>();
+        this.supplies = new ArrayList<>();
     }
 
     // Setters
@@ -23,8 +25,7 @@ public class Location {
     public void setSupplies(ArrayList<Supply> supplies) {this.supplies = supplies; }
 
     // Other methods
-    public void addOccupant(DisasterVictim occupant)
-    {
+    public void addOccupant(DisasterVictim occupant){
         this.occupants.add(occupant);
     }
 
@@ -41,7 +42,7 @@ public class Location {
     }
 
     // Getters
-    public String getName() {return this.name;} 
+    public String getName() {return this.name;}
     public String getAddress() { return this.address;}
     public ArrayList<DisasterVictim> getOccupants() {return this.occupants; }
     public ArrayList<Supply> getSupplies() { return this.supplies; }
