@@ -63,7 +63,7 @@ public class DisasterVictim{
 
             else{
                 int date = Integer.parseInt(parts[2]);
-                if (date < 1 || date > 28) {
+                if (date < 1 || date > 29) {
                     throw new IllegalArgumentException("Invalid date: " + date);
                 }
             }
