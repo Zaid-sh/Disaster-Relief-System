@@ -2,23 +2,23 @@ package edu.ucalgary.oop;
 
 public class Inquirer {
     // Member variables
-    private String firstName;
-    private String lastName;
-    private String info;
-    private String servicesPhone;
+    private final String FIRST_NAME;
+    private final String LAST_NAME;
+    private final String INFO;
+    private final String SERVICES_PHONE;
 
     // Constructor
     public Inquirer(String firstName, String lastName, String servicesPhone, String info){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.servicesPhone = servicesPhone;
-        this.info = info;
+        this.FIRST_NAME = firstName;
+        this.LAST_NAME = lastName;
+        this.SERVICES_PHONE = servicesPhone;
+        this.INFO = info;
     }
 
     // No Setters or additional Methods
     // Getters
-    public String getFirstName() {return this.firstName; }
-    public String getLastName() {return this.lastName; }
-    public String getInfo() {return this.info; }
-    public String getServicesPhone() {return this.servicesPhone; }
+    public String getFirstName() {return this.FIRST_NAME; }
+    public String getLastName() {return this.LAST_NAME; }
+    public String getInfo() {return this.INFO; }
+    public String getServicesPhone() {return this.SERVICES_PHONE; }
 }
