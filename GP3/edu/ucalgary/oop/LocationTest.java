@@ -52,14 +52,16 @@ public class LocationTest {
     @Test
     public void testAddOccupant() {
         location.addOccupant(victim);
-        assertTrue("addOccupant should add a disaster victim to the occupants list", location.getOccupants().contains(victim));
+        assertTrue("addOccupant should add a disaster victim to the occupants list",
+                location.getOccupants().contains(victim));
     }
 
     @Test
     public void testRemoveOccupant() {
         location.addOccupant(victim); // Ensure the victim is added first
         location.removeOccupant(victim);
-        assertFalse("removeOccupant should remove the disaster victim from the occupants list", location.getOccupants().contains(victim));
+        assertFalse("removeOccupant should remove the disaster victim from the occupants list",
+                location.getOccupants().contains(victim));
     }
 
     @Test
@@ -67,20 +69,23 @@ public class LocationTest {
         ArrayList<DisasterVictim> newOccupants = new ArrayList<>();
         newOccupants.add(victim);
         location.setOccupants(newOccupants);
-        assertTrue("setOccupants should replace the occupants list with the new list", location.getOccupants().containsAll(newOccupants));
+        assertTrue("setOccupants should replace the occupants list with the new list",
+                location.getOccupants().containsAll(newOccupants));
     }
 
     @Test
     public void testAddSupply() {
         location.addSupply(supply);
-        assertTrue("addSupply should add a supply to the supplies list", containsSupply(location.getSupplies(), supply));
+        assertTrue("addSupply should add a supply to the supplies list",
+                containsSupply(location.getSupplies(), supply));
     }
 
     @Test
     public void testRemoveSupply() {
         location.addSupply(supply); // Ensure the supply is added first
         location.removeSupply(supply);
-        assertFalse("removeSupply should remove the supply from the supplies list", containsSupply(location.getSupplies(), supply));
+        assertFalse("removeSupply should remove the supply from the supplies list",
+                containsSupply(location.getSupplies(), supply));
     }
 
     @Test
@@ -88,6 +93,31 @@ public class LocationTest {
         ArrayList<Supply> newSupplies = new ArrayList<>();
         newSupplies.add(supply);
         location.setSupplies(newSupplies);
-        assertTrue("setSupplies should replace the supplies list with the new list", containsSupply(location.getSupplies(), supply));
+        assertTrue("setSupplies should replace the supplies list with the new list",
+                containsSupply(location.getSupplies(), supply));
+    }
+
+    // NEW
+    @Test
+    public void testSupplyFromLocationAfterAllocationToVictim() {
+        location.addOccupant(victim); // Ensures victim is added first
+        // Adds the all of the first supply to the victim's inventory
+        Supply newSupply = location.getSupplies().get(0);
+        victim.addPersonalBelonging(newSupply);
+        ArrayList<Supply> personalBelongings = victim.getPersonalBelongings(); // Stores the victim's current inventory
+
+        if (newSupply.getQuantity() == 0) {
+            // If the supply is the last quantity left in the location, it should be removed
+            // from the location
+            assertFalse(
+                    "After allocating the supply to a victim, it should not be in the supplies list of the location",
+                    containsSupply(location.getSupplies(), newSupply));
+        } else {
+            // If there is more than one quantity left in the location, the supply should
+            // still remain in the location
+            assertTrue(
+                    "After allocating one qunatity to a victim, it should still appear in the list supplies of the location",
+                    containsSupply(location.getSupplies(), newSupply));
+        }
     }
 }

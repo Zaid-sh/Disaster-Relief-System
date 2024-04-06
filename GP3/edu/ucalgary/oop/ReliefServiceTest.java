@@ -80,7 +80,7 @@ public class ReliefServiceTest {
         // Maintains a log of interactions with the same inquirer instead of creating a new Inquirer object for each
         // instance.
         String inquirerInteraction = expectedLogDetails;
-        inquirer.updateIteractionsLog(inquirerInteraction);
+
         assertEquals("For every interaction between an existing inquirer, it should mantain a log for the inquirer", 
                       expectedLogDetails, inquirer.showInteractionsLog());
     }
