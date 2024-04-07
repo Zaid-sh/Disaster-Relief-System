@@ -1,9 +1,6 @@
 package edu.ucalgary.oop;
 
-public class DisasterVictim {
-    private String firstName;
-    private String lastName;
-    private String dateOfBirth;
+public class DisasterVictim extends Person { // DisasterVictim (child) implements Person (parent)
     private String comments;
     private final int ASSIGNED_SOCIAL_ID;
     private MedicalRecord[] medicalRecords;
@@ -11,9 +8,9 @@ public class DisasterVictim {
     private final String ENTRY_DATE;
     private Supply[] personalBelongings;
     private String gender;
-    private Integer age;
     private static int counter;
-
+ 
+    // Constructor
     public DisasterVictim(String firstName, String entry_Date) throws IllegalArgumentException {
         if (!entry_Date.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
             throw new IllegalArgumentException("Date of birth entered incorrectly.");
@@ -24,62 +21,65 @@ public class DisasterVictim {
         counter++;
     }
 
+    // Getters
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    public String getLastName() {
+        return super.getLastName();
+    }
+
+    public String getDateOfBirth() {
+        return super.getDateOfBirth();
+    }
+
+    public Integer getAge() {
+        return super.getAge();
+    }
+
+    public String getComments() {
+        return this.comments;
+    }
+
+    public MedicalRecord[] getMedicalRecords() {
+        return this.medicalRecords;
+    }
+
+    public String getEntryDate() {
+        return this.ENTRY_DATE;
+    }
+
+    public int getAssignedSocialID() {
+        return this.ASSIGNED_SOCIAL_ID;
+    }
+
+    public Supply[] getPersonalBelongings() {
+        return this.personalBelongings;
+    }
+
+    public FamilyRelation[] getFamilyConnections() {
+        return this.familyConnections;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    // SETTERS
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        super.setFirstName(firstName);
+        return;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        super.setLastName(lastName);
+        return;
     }
 
     public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException {
-        // if age already set, cannot set date of birth
-        if (this.age != null) {
-            throw new IllegalArgumentException("Cannot set both age and date of birth");
-        }
-
-        if (!dateOfBirth.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
-            throw new IllegalArgumentException("Not a valid date of birth: " + dateOfBirth);
-        } else {
-            String[] parts = dateOfBirth.split("-");
-            try {
-
-                int year = Integer.parseInt(parts[0]);
-                if (year < 1900 || year > 2025) {
-                    throw new IllegalArgumentException("Invalid year: " + year);
-                }
-
-                int month = Integer.parseInt(parts[1]);
-                if (month < 1 || month > 12) {
-                    throw new IllegalArgumentException("Invalid month: " + month);
-                }
-                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-                    int date = Integer.parseInt(parts[2]);
-                    if (date < 1 || date > 31) {
-                        throw new IllegalArgumentException("Invalid date: " + date);
-                    }
-                }
-
-                else if (month == 4 || month == 6 || month == 9 || month == 11) {
-                    int date = Integer.parseInt(parts[2]);
-                    if (date < 1 || date > 30) {
-                        throw new IllegalArgumentException("Invalid date: " + date);
-                    }
-
-                }
-
-                else {
-                    int date = Integer.parseInt(parts[2]);
-                    if (date < 1 || date > 29) {
-                        throw new IllegalArgumentException("Invalid date: " + date);
-                    }
-                }
-
-            } catch (NumberFormatException exeption) {
-                throw new IllegalArgumentException("Invalid date format: " + dateOfBirth, exeption);
-            }
-        }
-        this.dateOfBirth = dateOfBirth;
+        super.validateDateFormatBirthday(dateOfBirth);
+        return;
     }
 
     // NEW
@@ -98,24 +98,30 @@ public class DisasterVictim {
 
     public void setComments(String comments) {
         this.comments = comments;
+        return;
     }
 
     public void setMedicalRecords(MedicalRecord[] medicalRecords) {
         this.medicalRecords = medicalRecords;
+        return;
     }
 
     public void setPersonalBelongings(Supply[] supplies) {
         this.personalBelongings = supplies;
+        return;
     }
 
     public void setFamilyConnections(FamilyRelation[] relation) {
         this.familyConnections = relation;
+        return;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
+        return;
     }
 
+    // OTHER METHODS
     public void addPersonalBelonging(Supply supply) {
         if (this.personalBelongings == null) {
             Supply[] arr = { supply };
@@ -183,50 +189,5 @@ public class DisasterVictim {
 
     public void addMedicalRecord(MedicalRecord medicalRecord) {
 
-    }
-
-    // Getters
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public MedicalRecord[] getMedicalRecords() {
-        return medicalRecords;
-    }
-
-    public String getEntryDate() {
-        return ENTRY_DATE;
-    }
-
-    public int getAssignedSocialID() {
-        return ASSIGNED_SOCIAL_ID;
-    }
-
-    public Supply[] getPersonalBelongings() {
-        return personalBelongings;
-    }
-
-    public FamilyRelation[] getFamilyConnections() {
-        return familyConnections;
-    }
-
-    public String getGender() {
-        return gender;
     }
 }

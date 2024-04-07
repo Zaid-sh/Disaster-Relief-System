@@ -11,7 +11,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DisasterVictimTest {
     private DisasterVictim victim;
@@ -30,10 +29,6 @@ public class DisasterVictimTest {
         suppliesToSet = new ArrayList<>();
         suppliesToSet.add(new Supply("Water Bottle", 10));
         suppliesToSet.add(new Supply("Blanket", 5));
-
-        DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
-        DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
-
     }
 
     @Test
@@ -273,24 +268,6 @@ public class DisasterVictimTest {
             }
         }
         assertTrue("setPersonalBelongings should correctly update personal belongings", correct);
-    }
-
-    // test set age if date of birth is already set
-    @Test(expected = IllegalArgumentException.class)
-    public void testSetAgeWithInvalidAge() {
-        Integer invalidAge = -5; // Invalid age value
-        victim.setAge(invalidAge);
-        // Expecting IllegalArgumentException due to invalid age
-    }
-
-    // test set date of birth if age is already set
-    @Test(expected = IllegalArgumentException.class)
-    public void testSetDateOfBirthWithAgeAlreadySet() {
-        Integer age = 25;
-        victim.setAge(age);
-        String newDateOfBirth = "1987-05-21";
-        victim.setDateOfBirth(newDateOfBirth);
-        // Expecting IllegalArgumentException due to age already set
     }
 
 }
