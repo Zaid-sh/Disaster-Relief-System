@@ -1,24 +1,44 @@
 package edu.ucalgary.oop;
 
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.List;
+
 public class DisasterVictim extends Person { // DisasterVictim (child) implements Person (parent)
     private String comments;
     private final int ASSIGNED_SOCIAL_ID;
-    private MedicalRecord[] medicalRecords;
-    private FamilyRelation[] familyConnections;
-    private final String ENTRY_DATE;
-    private Supply[] personalBelongings;
+    private ArrayList<MedicalRecord> medicalRecords;
+    private ArrayList<FamilyRelation> familyConnections;
+    private String ENTRY_DATE;
+    private ArrayList<Supply> personalBelongings;
     private String gender;
+    private ArrayList<String> genderOptions;
     private static int counter;
- 
-    // Constructor
-    public DisasterVictim(String firstName, String entry_Date) throws IllegalArgumentException {
-        if (!entry_Date.matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")) {
-            throw new IllegalArgumentException("Date of birth entered incorrectly.");
-        }
-        this.firstName = firstName;
-        this.ENTRY_DATE = entry_Date;
+    private Set<DietaryRestriction> dietaryRestrictions;
+    private List<FamilyRelation> relations;
+
+    // Default Constructor
+    public DisasterVictim(String firstName, String ENTRY_DATE) {
+        super(firstName);
+        this.medicalRecords = new ArrayList<MedicalRecord>();
+        this.familyConnections = new ArrayList<FamilyRelation>();
+        this.personalBelongings = new ArrayList<Supply>();
         this.ASSIGNED_SOCIAL_ID = counter;
+        validateDateFormat(ENTRY_DATE);
         counter++;
+        this.dietaryRestrictions = new HashSet<>();
+        this.relations = new ArrayList<>();
+
+        genderOptions = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("GenderOptions.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                genderOptions.add(line.trim());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     // Getters
